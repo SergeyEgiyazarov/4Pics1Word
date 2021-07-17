@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        SetupLevel(currentLevel);
+        //SetupLevel(currentLevel);
         balanceText.text = "" + balance;
     }
 
