@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ImageController : MonoBehaviour
 {
     [SerializeField] private List<Image> images;
-
+    
     public void SetImage(List<Sprite> inImages)
     {
         for (int i = 0; i < inImages.Count; i++)
@@ -14,4 +14,5 @@ public class ImageController : MonoBehaviour
             images[i].sprite = inImages[i];
         }
     }
+
 }
