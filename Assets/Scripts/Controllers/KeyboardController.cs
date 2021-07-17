@@ -6,7 +6,6 @@ using TMPro;
 
 public class KeyboardController : MonoBehaviour
 {
-    public GameObject[] buttonKeyboard;
     public ButtonKeyboard[] buttonsKeyboard;
 
     private WordController wordController;
@@ -49,11 +48,6 @@ public class KeyboardController : MonoBehaviour
 
         for (int i = 0; i < letterCount; i++)
         {
-            /*TextMeshProUGUI textButton = buttonKeyboard[i].GetComponentInChildren<TextMeshProUGUI>();
-            Button button = buttonKeyboard[i].GetComponent<Button>();
-            button.interactable = true;
-            textButton.text = "" + arrayChar[i];*/
-
             buttonsKeyboard[i].KeyboardButton.interactable = true;
             buttonsKeyboard[i].status = KeyboardStatus.Active;
 
@@ -63,11 +57,6 @@ public class KeyboardController : MonoBehaviour
 
     public void ClickLetter(ButtonKeyboard buttonKeyboard)
     {
-        /*TextMeshProUGUI textButton = buttonObject.GetComponentInChildren<TextMeshProUGUI>();
-        Button button = buttonObject.GetComponent<Button>();
-        button.interactable = false;
-        wordController.SetLetter(textButton.text[0]);*/
-
         buttonKeyboard.KeyboardButton.interactable = false;
         buttonKeyboard.status = KeyboardStatus.NonActive;
 
@@ -78,14 +67,6 @@ public class KeyboardController : MonoBehaviour
     {
         for (int i = 0; i < letterCount; i++)
         {
-            /*TextMeshProUGUI textButton = buttonKeyboard[i].GetComponentInChildren<TextMeshProUGUI>();
-            Button button = buttonKeyboard[i].GetComponent<Button>();
-
-            if (textButton.text == str && button.interactable == false)
-            {
-                button.interactable = true;
-                break;
-            }*/
 
             if (buttonsKeyboard[i].TextKeyboardButton.text == str && buttonsKeyboard[i].KeyboardButton.interactable == false)
             {

@@ -9,7 +9,6 @@ public class WordController : MonoBehaviour
     public delegate void Validation(bool isWin);
     public static event Validation Check;
 
-    //public GameObject[] buttonsWord;
     public ButtonWordField[] buttonsWordField;
 
     private KeyboardController keyboardController;
@@ -31,13 +30,6 @@ public class WordController : MonoBehaviour
 
         for (int i = 0; i < trueWord.Length; i++)
         {
-            /*buttonsWord[i].SetActive(true);
-            Button button = buttonsWord[i].GetComponent<Button>();
-            TextMeshProUGUI textButton = buttonsWord[i].GetComponentInChildren<TextMeshProUGUI>();
-            button.interactable = false;
-            textButton.text = "";
-            testWord = testWord + " ";*/
-
             buttonsWordField[i].gameObject.SetActive(true);
             buttonsWordField[i].status = StatusButton.Default;
             buttonsWordField[i].WordButton.interactable = false;
@@ -49,10 +41,8 @@ public class WordController : MonoBehaviour
 
     public void SetLetter(char letter)
     {
-       // TextMeshProUGUI textButton = buttonsWord[activeLetterIndex].GetComponentInChildren<TextMeshProUGUI>();
         if (activeLetterIndex < trueWord.Length && buttonsWordField[activeLetterIndex].WordTextButton.text == "")
         {
-            //Button button = buttonsWord[activeLetterIndex].GetComponent<Button>();
             buttonsWordField[activeLetterIndex].WordButton.interactable = true;
             buttonsWordField[activeLetterIndex].WordTextButton.text = "" + letter;
             buttonsWordField[activeLetterIndex].status = StatusButton.HaveLetter;
@@ -102,11 +92,9 @@ public class WordController : MonoBehaviour
 
     public void DeletSymbol(int index)
     {
-        //Button button = buttonsWord[index].GetComponent<Button>();
         buttonsWordField[index].WordButton.interactable = false;
         buttonsWordField[index].status = StatusButton.Default;
 
-        //TextMeshProUGUI textButton = buttonsWord[index].GetComponentInChildren<TextMeshProUGUI>();
         keyboardController.ReturnButton(buttonsWordField[index].WordTextButton.text);
         buttonsWordField[index].WordTextButton.text = "";
         if (index < activeLetterIndex)
@@ -119,7 +107,6 @@ public class WordController : MonoBehaviour
     {
         for (int i = 0; i < trueWord.Length; i++)
         {
-            //Button button = buttonsWord[i].GetComponent<Button>();
             if (buttonsWordField[i].WordButton.interactable == true && buttonsWordField[i].status != StatusButton.OpenTrueLetter)
             {
                 DeletSymbol(i);
